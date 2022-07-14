@@ -1,0 +1,16 @@
+.form {
+  padding: 1rem;
+}
+
+.form input:focus {
+  outline: 1px solid blue !important;
+}
+
+.icon {
+  outline: 1px solid #333;
+}
+.icon:hover,
+.icon:focus {
+  cursor: pointer;
+  background-color: #e3e3e3 !important;
+}

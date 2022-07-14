@@ -4,6 +4,9 @@ import VideoList from '../VideoList/VideoList'
 import VideoDetail from '../VideoDetail/VideoDetail'
 import useVideos from '../../hooks/useVideos'
 
+import '../../styles/reset.css'
+import styles from './App.module.css'
+
 const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null)
   const [videos, search] = useVideos('cats')
@@ -13,19 +16,10 @@ const App = () => {
   }, [videos])
 
   return (
-    <div className='ui container' style={{ marginTop: '1rem' }}>
+    <div className={`${styles.app__container}`}>
       <SearchBar onSearchSubmit={search} />
-      <br />
-      <div className='ui grid'>
-        <div className='ui row'>
-          <div className='eleven wide column'>
-            <VideoDetail video={selectedVideo} />
-          </div>
-          <div className='five wide column'>
-            <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
-          </div>
-        </div>
-      </div>
+      <VideoDetail video={selectedVideo} />
+      <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
     </div>
   )
 }

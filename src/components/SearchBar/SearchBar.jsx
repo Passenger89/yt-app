@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+import { AiOutlineSearch } from 'react-icons/ai'
+
+import styles from './SearchBar.module.css'
+
 const SearchBar = ({ onSearchSubmit }) => {
   const [term, setTerm] = useState('')
 
@@ -9,19 +13,22 @@ const SearchBar = ({ onSearchSubmit }) => {
   }
 
   return (
-    <div className='search-bar ui segment'>
-      <form className='ui form' onSubmit={handleSubmit}>
-        <div className='field'>
-          <label>Video Search</label>
-          <input
-            type='text'
-            name='term'
-            value={term}
-            onChange={e => setTerm(e.target.value)}
-          />
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className='ui fluid right labeled input'>
+        <input
+          id='video_search'
+          type='text'
+          name='term'
+          value={term}
+          onChange={e => setTerm(e.target.value)}
+          style={{ outline: '1px solid #333' }}
+          placeholder='Search'
+        />
+        <div className={`${styles.icon} ui basic label`}>
+          <AiOutlineSearch onClick={handleSubmit} />
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 
